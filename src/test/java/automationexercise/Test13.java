@@ -24,8 +24,8 @@ public class Test13 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-
     }
+
     @Test
     public void test() throws InterruptedException {
 
@@ -43,13 +43,15 @@ public class Test13 {
         driver.findElement(By.xpath("//*[@href='/product_details/39']")).click();
 
 
+        Thread.sleep(1000);
         //5. Verify product detail is opened --5. Ürün detayının açıldığını doğrulayın
         WebElement urunDetay = driver.findElement(By.cssSelector("div[class='product-information']"));
         Assert.assertTrue(urunDetay.isDisplayed());
 
         //6. Increase quantity to 4 --6. Miktarı 4'e yükseltin
         WebElement urunMiktar = driver.findElement(By.cssSelector("input[id='quantity']"));
-        urunMiktar.sendKeys(Keys.ARROW_RIGHT,Keys.BACK_SPACE);
+        urunMiktar.clear();
+      //urunMiktar.sendKeys(Keys.ARROW_RIGHT,Keys.BACK_SPACE);
         Thread.sleep(2000);
         urunMiktar.sendKeys("4");
 
